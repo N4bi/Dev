@@ -108,6 +108,20 @@ const GUIimage* j1Gui::CreateImage(SDL_Texture* texture, iPoint pos, SDL_Rect& r
 	return image_ret;
 }
 
+const GUIbutton* j1Gui::CreateButton(int width, int height, iPoint pos, bool clicked)
+{
+	GUIbutton* button = new GUIbutton();
+
+	button->pos = pos;
+	button->width = width;
+	button->height = height;
+	button->clicked = clicked;
+
+	GUIelement_list.add(button);
+
+	return button;
+}
+
 
 bool GUIlabel::Draw()
 {
@@ -120,6 +134,10 @@ bool GUIimage::Draw()
 	App->render->Blit(image, pos.x, pos.y, &rect);
 	return true;
 }
+
+
+
+
 
 
 

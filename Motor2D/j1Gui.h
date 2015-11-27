@@ -60,12 +60,12 @@ public:
 	int width, height;
 	bool clicked;
 
-	GUIbutton();
+	GUIbutton(){ pos.SetToZero(); type = GUI_BUTTON; width = 0; height = 0; clicked = false; };
 	GUIbutton(int width, int height);
 	~GUIbutton();
 
-	bool Update();
-	bool Draw();
+	bool Update(){ return true; };
+	bool Draw(){ return true; };
 };
 
 // ---------------------------------------------------
@@ -97,6 +97,7 @@ public:
 	// Gui creation functions
 	const GUIlabel* CreateLabel(const char* label_text, iPoint pos);
 	const GUIimage* CreateImage(SDL_Texture* image, iPoint pos, SDL_Rect& rect);
+	const GUIbutton* CreateButton(int width, int height, iPoint pos, bool clicked);
 
 	const SDL_Texture* GetAtlas() const;
 
